@@ -1,0 +1,27 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Weekly Quiz App</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+<div class="container">
+  <h1>Weekly Quiz</h1>
+  <select id="weekSelect" onchange="loadWeek()">
+    <option value="">Select Week</option>
+  </select>
+
+  <div id="quiz"></div>
+  <div id="questionInfo" class="question-info"></div>
+  <div class="quiz-controls">
+    <button id="prevBtn" onclick="changeQuestion(-1)" disabled>Previous</button>
+    <button id="nextBtn" onclick="changeQuestion(1)" disabled>Next</button>
+  </div>
+</div>
+
+<script src="script.js"></script>
+
+</body>
+</html>
