@@ -745,7 +745,20 @@ function loadWeek() {
   infoDiv.innerHTML = '';
   clearAutoAdvance();
 
-  const sourceWeek = weeks[week];
+  let sourceWeek;
+  
+  // Handle "All Weeks" option
+  if (week === 'all') {
+    const allQuestions = [];
+    for (let i = 0; i <= 12; i++) {
+      allQuestions.push(...weeks[i]);
+    }
+    // Shuffle the questions array
+    sourceWeek = shuffle(allQuestions);
+  } else {
+    sourceWeek = weeks[week];
+  }
+  
   if (!sourceWeek) {
     quizDiv.innerHTML = 'No questions added yet.';
     prevBtn.disabled = true;
@@ -861,6 +874,13 @@ function showResult() {
 
 function fillWeekDropdown() {
   const weekSelect = document.getElementById('weekSelect');
+  
+  // Add "All Weeks" option
+  const allOpt = document.createElement('option');
+  allOpt.value = 'all';
+  allOpt.text = 'All Weeks (All 130 Questions)';
+  weekSelect.appendChild(allOpt);
+  
   for (let i = 0; i <= 12; i++) {
     const opt = document.createElement('option');
     opt.value = i;
