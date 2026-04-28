@@ -857,7 +857,7 @@ function showResult() {
   const score = weekQuestions.reduce((total, question, index) => {
     return total + (selectedAnswers[index] === question.answer ? 1 : 0);
   }, 0);
-
+ 
   quizDiv.innerHTML = `
     <div class="result-card">
       <h3>Quiz complete</h3>
