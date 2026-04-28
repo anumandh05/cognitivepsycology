@@ -756,7 +756,8 @@ function loadWeek() {
     // Shuffle the questions array
     sourceWeek = shuffle(allQuestions);
   } else {
-    sourceWeek = weeks[week];
+    // Shuffle individual week questions as well
+    sourceWeek = shuffle(weeks[week]);
   }
   
   if (!sourceWeek) {
